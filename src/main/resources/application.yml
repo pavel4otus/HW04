@@ -1,0 +1,22 @@
+server:
+  port: 8082
+logging:
+  level:
+    ROOT: INFO
+spring:
+  application:
+    admin:
+      enabled: true
+
+
+locale:
+   language: "en"
+   country:  "US"
+   filename: "test_en_US.txt"
+
+
+
+#locale:
+#   language: "ru"
+#   country:  "RU"
+#   filename: "test_ru_RU.txt"
