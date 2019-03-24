@@ -79,6 +79,7 @@ public class TestServiceImpl implements TestService {
         testStore.addAnswer( questionID, answerID);
     }
 
+    /*
     public void processTest(){
         Collection<Question> questions = questionRepository.getAll();
         Iterator<Question> iterator    = questions.iterator();
@@ -88,8 +89,7 @@ public class TestServiceImpl implements TestService {
             inputAnswer( question);
         }
     }
-
-
+    */
 
     public void showTestResult(){
         List<Question> questionList = new ArrayList<>(questionRepository.getAll());

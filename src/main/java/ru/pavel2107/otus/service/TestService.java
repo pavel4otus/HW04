@@ -6,7 +6,7 @@ public interface TestService {
     boolean init();
     boolean inviteStudent();
     boolean inviteStudent( String name, String surname);
-    void processTest();
+    // void processTest();
     void showQuestion( Question question);
     void inputAnswer( Question question);
     void setAnswer( String questionID, int answerID);
