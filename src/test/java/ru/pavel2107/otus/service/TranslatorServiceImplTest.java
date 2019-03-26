@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.test.context.ActiveProfiles;
 import ru.pavel2107.otus.config.ApplicationProperties;
 
 import java.util.Locale;
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @DisplayName( "Транслятор")
+@ActiveProfiles( "test")
 class TranslatorServiceImplTest {
 
 
@@ -23,15 +25,17 @@ class TranslatorServiceImplTest {
     TranslatorService translatorService;
 
     @Test
-    void translate() {
+    @DisplayName( "Проверка вывода без параметра")
+    void checkTranslateWithoutParameter() {
         String str = translatorService.translate( "hello.user");
-        assertTrue  ( "Hello, student!".equals( str) );
+        assertEquals  ( "Hello, student!", str );
 
     }
 
     @Test
-    void translate1() {
+    @DisplayName( "Проверка вывода c параметром")
+    void checkTranslateWithParameter() {
         String str = translatorService.translate( "results.answer", new String[]{ "1"} );
-        assertTrue( "Your answer is 1".equals( str));
+        assertEquals( "Your answer is 1", str);
     }
 }

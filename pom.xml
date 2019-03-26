@@ -56,6 +56,8 @@
             <scope>test</scope>
         </dependency>
 
+
+
         <dependency>
             <groupId>org.springframework.shell</groupId>
             <artifactId>spring-shell-starter</artifactId>
@@ -70,6 +72,10 @@
 </dependency>
 
     </dependencies>
+
+
+
+
 
     <build>
         <plugins>

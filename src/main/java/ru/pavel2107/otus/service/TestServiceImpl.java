@@ -18,7 +18,6 @@ public class TestServiceImpl implements TestService {
     private final InviteStudent     inviteStudent;
 
 
-    @Autowired
     private TransmitterService transmitterService;
 
     @Autowired
@@ -97,7 +96,13 @@ public class TestServiceImpl implements TestService {
         transmitterService.printlnResource( "results.header", testStore.getStudent().toString());
         for( Question question : questionList){
             transmitterService.printlnString( question.toString() + ". ");
-            int studentAnswer = testStore.getAnswers().get( question.getId());
+            int studentAnswer;
+            try {
+                studentAnswer = testStore.getAnswers().get(question.getId());
+            }catch ( Exception e){
+                transmitterService.printlnResource( "results.error"); // ответ попросту не был предоставлен
+                continue;
+            }
             transmitterService.printResource( "results.answer", Integer.toString( studentAnswer));
             if( question.getCorrectAnswer() == studentAnswer){
                 correctAnswers++;
