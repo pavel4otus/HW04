@@ -36,7 +36,7 @@ public class TestShellProcessor {
     }
 
     @ShellMethod( value = "Quantity", key = "count")
-    @ShellMethodAvailability( "isInitialized and isInvited")
+    @ShellMethodAvailability( "isInvited")
     public String countQuestions(){
         return "Count of questions: " + testService.countQuestions();
     }
@@ -45,7 +45,9 @@ public class TestShellProcessor {
     @ShellMethodAvailability( "isInvited")
     public void showQuestion( @ShellOption String questionID){
         Question question = testService.findById( questionID);
-        testService.showQuestion( question);
+        if( question != null) {
+            testService.showQuestion(question);
+        }
     }
 
     @ShellMethod( value ="Enter answer for test", key = "answer")
