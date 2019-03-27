@@ -4,8 +4,6 @@ logging:
   level:
     ROOT: INFO
 spring:
-  profiles:
-    active: "test"
   application:
     admin:
       enabled: true

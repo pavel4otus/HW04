@@ -12,7 +12,6 @@ import ru.pavel2107.otus.domain.Question;
 import ru.pavel2107.otus.service.TestService;
 
 @ShellComponent
-@Profile( "production")
 public class TestShellProcessor {
 
     private TestService testService;
